@@ -148,7 +148,7 @@ def start_the_game(word: str, count: int, level) -> None:
         return
     for i in range(len(list_char)):
         if char == list_char[i]:
-            list_underscore[i]= char
+            list_underscore[i] = char
 
     if "_" not in list_underscore:
         if level == "HARD":
@@ -210,7 +210,6 @@ def load_the_game(level: str) -> None:
         print("The word is a country")
     else:
         print("The word is a flower")
-    print(word)
     start_the_game(word, 0,level)
 
 

@@ -119,8 +119,8 @@ def hangman(count: int) -> None:
 
 def start_the_game(word: str, count: int, level) -> None:
     if count == 5:
-        typewriter(f"The word is {word}. Better luck next Time")
-        play_again = input("Do you want to play again Yes --> Y No --> N")
+        typewriter(f"The word is {word}. Better luck next Time \n")
+        play_again = input("Do you want to play again Yes --> Y No --> N  ")
         play_again = play_again[0].upper()
         if play_again == "Y":
             start()

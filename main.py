@@ -45,7 +45,7 @@ def get_games_list() -> list:
     for row in reader_hard:
         word = row[0].upper()
         games_list[2].append(word)
-    return flower_list
+    return games_list
 
 
 def get_countries_list() -> list:

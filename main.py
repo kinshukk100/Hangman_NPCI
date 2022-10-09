@@ -8,6 +8,7 @@ list_underscore = []
 list_guess = []
 name = []
 
+
 def get_animal_list() -> list:
     animal_list = [[], [], []]
     file_easy = open("Animal_List(Easy).csv", "r")
@@ -167,13 +168,14 @@ def start_the_game(word: str, count: int, level) -> None:
         return
     for i in range(len(list_char)):
         if char == list_char[i]:
-            list_underscore[i]= char
+            list_underscore[i] = char
 
     if "_" not in list_underscore:
+        print(f"Congrats! You have guessed \"{word}\" correctly")
         if level == "HARD":
-            print("game is completed")
+            print(f"Congrats {name[0]}! You have completed the game")
             return
-        print("Congrats! you have reached the next level")
+        print("You have reached the next level")
         if level == "EASY":
             level = "MEDIUM"
             list_underscore.clear()
@@ -185,8 +187,8 @@ def start_the_game(word: str, count: int, level) -> None:
             level = "HARD"
             list_underscore.clear()
             list_char.clear()
-            load_the_game(level)
             list_guess.clear()
+            load_the_game(level)
             return
     else:
         temp_word = "".join(list_underscore)
@@ -252,3 +254,11 @@ def start() -> None:
 
 
 start()
+
+
+
+
+
+
+
+

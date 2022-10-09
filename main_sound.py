@@ -250,14 +250,14 @@ def typewriter(msg):
 
 def start() -> None:
 
-    my_text = "Welcome to the Hangman Game! Please Enter your name -> "
+    my_text = "Welcome to the Hangman Game! Please Enter your name "
     language = 'en'
     output = gTTS(my_text, lang=language, slow=False)
     output.save("output.mp3")
     typewriter("Welcome to the Hangman Game! Please Enter your name -> ")
     playsound.playsound("output.mp3")
     
-    typewriter("Welcome to the Hangman Game! Please Enter your name -> ")
+   
     give_name = input()
     name.append(give_name)
     level = "EASY"

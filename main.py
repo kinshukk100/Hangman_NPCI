@@ -119,21 +119,22 @@ def hangman(count: int) -> None:
 
 def start_the_game(word: str, count: int, level) -> None:
     if count == 5:
-        print(f"The word is {word}. Better luck next Time")
+        typewriter(f"The word is {word}. Better luck next Time")
         play_again = input("Do you want to play again Yes --> Y No --> N")
         play_again = play_again[0].upper()
         if play_again == "Y":
             start()
         return
-    char = input("Take a guess ")
+    typewriter("Take a guess ")
+    char = input()
     char = char[0]
     if not char.isalpha():
-        print("Invalid input")
+        typewriter("Invalid input")
         start_the_game(word, count, level)
         return
     char = char.upper()
     if char in list_guess:
-        print("You have already made this guess. Please make a different guess ")
+        typewriter("You have already made this guess. Please make a different guess ")
         start_the_game(word, count, level)
         return
     list_guess.append(char)
@@ -143,7 +144,7 @@ def start_the_game(word: str, count: int, level) -> None:
         g_word = "guesses"
         if count == 4:
             g_word = "guess"
-        print(f"Oops! Wrong guess. You have {5 - count} {g_word} remaining")
+        typewriter(f"Oops! Wrong guess. You have {5 - count} {g_word} remaining")
         start_the_game(word,count,level)
         return
     for i in range(len(list_char)):
@@ -152,9 +153,9 @@ def start_the_game(word: str, count: int, level) -> None:
 
     if "_" not in list_underscore:
         if level == "HARD":
-            print("game is completed")
+            typewriter("game is completed")
             return
-        print("Congrats! you have reached the next level")
+        typewriter("Congrats! you have reached the next level")
         if level == "EASY":
             level = "MEDIUM"
             list_underscore.clear()
@@ -205,11 +206,11 @@ def load_the_game(level: str) -> None:
         list_char.append(char)
     print("The word is "+"".join(list_underscore))
     if index == 0:
-        print("The word is an animal")
+        typewriter("The word is an animal type")
     elif index == 1:
-        print("The word is a country")
+        typewriter("The word is a country type")
     else:
-        print("The word is a flower")
+        typewriter("The word is a sports type")
     start_the_game(word, 0,level)
 
 
@@ -226,10 +227,10 @@ def typewriter(msg):
 def start() -> None:
     typewriter("Welcome to the Hangman Game! Please Enter your name -> ")
     name = input()
-    # typewriter(f"Hello {name.upper()} this game is in three levels Easy, Medium & Hard \n")
-    # time.sleep(1.5)
+    typewriter(f"Hello {name.upper()} this game is in three levels Easy, Medium & Hard \n")
+    time.sleep(1.5)
     typewriter(f"Lets just start with Easy one! All the best {name.upper()} \n")
-    # time.sleep(0.5)
+    time.sleep(0.5)
     level = "EASY"
     load_the_game(level)
 

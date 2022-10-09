@@ -125,16 +125,16 @@ def start_the_game(word: str, count: int, level) -> None:
         if play_again == "Y":
             start()
         return
-    typewriter("Take a guess ")
+    typewriter("Enter your guess -> ")
     char = input()
     char = char[0]
     if not char.isalpha():
-        typewriter("Invalid input")
+        typewriter("Invalid Input, Try a letter \n")
         start_the_game(word, count, level)
         return
     char = char.upper()
     if char in list_guess:
-        typewriter("You have already made this guess. Please make a different guess ")
+        typewriter("You have already made this guess. Please make a different guess \n")
         start_the_game(word, count, level)
         return
     list_guess.append(char)
@@ -144,7 +144,7 @@ def start_the_game(word: str, count: int, level) -> None:
         g_word = "guesses"
         if count == 4:
             g_word = "guess"
-        typewriter(f"Oops! Wrong guess. You have {5 - count} {g_word} remaining")
+        typewriter(f"Oops! Wrong guess. You have {5 - count} {g_word} remaining \n")
         start_the_game(word,count,level)
         return
     for i in range(len(list_char)):
@@ -153,9 +153,9 @@ def start_the_game(word: str, count: int, level) -> None:
 
     if "_" not in list_underscore:
         if level == "HARD":
-            typewriter("game is completed")
+            typewriter("You Won the Game!!! \n")
             return
-        typewriter("Congrats! you have reached the next level")
+        typewriter("Congrats! you have reached the next level\n ")
         if level == "EASY":
             level = "MEDIUM"
             list_underscore.clear()
@@ -206,11 +206,11 @@ def load_the_game(level: str) -> None:
         list_char.append(char)
     print("The word is "+"".join(list_underscore))
     if index == 0:
-        typewriter("The word is an animal type")
+        typewriter("The word is an animal type \n")
     elif index == 1:
-        typewriter("The word is a country type")
+        typewriter("The word is a country type \n")
     else:
-        typewriter("The word is a sports type")
+        typewriter("The word is a sports type \n")
     start_the_game(word, 0,level)
 
 

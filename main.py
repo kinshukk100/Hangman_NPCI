@@ -28,23 +28,23 @@ def get_animal_list() -> list:
     return animal_list
 
 
-def get_flower_list() -> list:
-    flower_list = [[], [], []]
-    file_easy = open("Flowers_List(Easy).csv", "r")
+def get_games_list() -> list:
+    games_list = [[], [], []]
+    file_easy = open("Games_List(Easy).csv", "r")
     reader_easy = csv.reader(file_easy)
-    file_medium = open("Flowers_List(Medium).csv", "r")
+    file_medium = open("Games_List(Medium).csv", "r")
     reader_medium = csv.reader(file_medium)
-    file_hard = open("Flowers_List(Hard) .csv", "r")
+    file_hard = open("Games_List(Hard).csv", "r")
     reader_hard = csv.reader(file_hard)
     for row in reader_easy:
         word = row[0].upper()
-        flower_list[0].append(word)
+        games_list[0].append(word)
     for row in reader_medium:
         word = row[0].upper()
-        flower_list[1].append(word)
+        games_list[1].append(word)
     for row in reader_hard:
         word = row[0].upper()
-        flower_list[2].append(word)
+        games_list[2].append(word)
     return flower_list
 
 
@@ -71,7 +71,7 @@ def get_countries_list() -> list:
 def hangman(count: int) -> None:
     if count == 1:
 
-        print("     __________ \n"
+        print("  ______________ \n"
                   "  ||       \n"
                   "  ||       \n"
                   "  ||       \n"
@@ -83,7 +83,7 @@ def hangman(count: int) -> None:
                   "______ \n"
                   "|    |\n")
     elif count == 2:
-        print("     __________ \n"
+        print("  ______________ \n"
                   "  ||     | \n"
                   "  ||       \n"
                   "  ||       \n"
@@ -95,7 +95,7 @@ def hangman(count: int) -> None:
                   "______ \n"
                   "|    |\n")
     elif count == 3:
-        print("     __________ \n"
+        print("  ______________ \n"
                   "  ||     | \n"
                   "  ||     | \n"
                   "  ||       \n"
@@ -107,7 +107,7 @@ def hangman(count: int) -> None:
                   "______ \n"
                   "|    |\n")
     elif count == 4:
-        print("     __________ \n"
+        print("  ______________ \n"
                   "  ||     | \n"
                   "  ||     | \n"
                   "  ||     | \n"
@@ -119,7 +119,7 @@ def hangman(count: int) -> None:
                   "______ \n"
                   "|    |\n")
     else:
-        print("     __________ \n"
+        print("  ______________ \n"
                   "  ||     | \n"
                   "  ||     | \n"
                   "  ||     | \n"
@@ -200,21 +200,21 @@ def load_the_game(level: str) -> None:
         elif index == 1:
             word_list = get_countries_list()[0]
         else:
-            word_list = get_flower_list()[0]
+            word_list = get_games_list()[0]
     elif level == "MEDIUM":
         if index == 0:
             word_list = get_animal_list()[1]
         elif index == 1:
             word_list = get_countries_list()[1]
         else:
-            word_list = get_flower_list()[1]
+            word_list = get_games_list()[1]
     else:
         if index == 0:
             word_list = get_animal_list()[2]
         elif index == 1:
             word_list = get_countries_list()[2]
         else:
-            word_list = get_flower_list()[2]
+            word_list = get_games_list()[2]
     word = random.choice(word_list)
     for char in word:
         list_underscore.append("_")

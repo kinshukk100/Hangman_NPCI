@@ -107,14 +107,17 @@ def hangman(count: int) -> None:
                   "  |       \n"
                   "|\n")
     else:
-        print("   _ \n"
-                  "  |     | \n"
-                  "  |     | \n"
-                  "  |     | \n"
-                  "  |     😣 \n"
-                  "  |    /|\ \n"
-                  "  |    / \ \n"
-                  "|\n")
+        print("             __________ \n"
+                  "  ||     | \n"
+                  "  ||     | \n"
+                  "  ||     | \n"
+                  "  ||     😣 \n"
+                  "  ||    /|\ \n"
+                  "  ||    / \ \n"
+                  "  ||        \n"
+                  "  ||        \n"
+                  "______ \n"
+                  "|    |\n")
 
 
 def start_the_game(word: str, count: int, level) -> None:

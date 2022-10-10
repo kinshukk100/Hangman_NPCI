@@ -138,7 +138,7 @@ def start_the_game(word: str, count: int, level) -> None:
         typewriter(f"The word is {word}. Better luck next Time \n")
         play_again = input("Do you want to play again Yes --> Y No --> N ")
         if play_again == "" or not play_again[0].isalpha():
-                return
+            return
         play_again = play_again[0].upper()
         if play_again == "Y":
             list_guess.clear()
@@ -150,7 +150,7 @@ def start_the_game(word: str, count: int, level) -> None:
     typewriter(f"This is the Hangman Word: {temp_word} Enter your guess -> ")
     char = input()
     if char == "":
-        typewriter("Invalid input, Please Enter Atleast one letter \n")
+        typewriter("Invalid input, Please Enter a letter \n")
         start_the_game(word, count, level)
         return
     char = char[0]
@@ -172,7 +172,7 @@ def start_the_game(word: str, count: int, level) -> None:
             g_word = "guess"
         if count != 5:
             typewriter(f"Oops! Wrong guess. You have {5 - count} {g_word} remaining \n")
-        start_the_game(word,count,level)
+        start_the_game(word, count, level)
         return
     for i in range(len(list_char)):
         if char == list_char[i]:
@@ -208,8 +208,6 @@ def start_the_game(word: str, count: int, level) -> None:
             load_the_game(level)
             return
     else:
-        temp_word = "".join(list_underscore)
-        print(temp_word)
         start_the_game(word, count, level)
 
 
@@ -247,7 +245,7 @@ def load_the_game(level: str) -> None:
     elif index == 1:
         typewriter("The Type of word is Country \n")
     else:
-        typewriter("The Type of word is Sport \n")
+        typewriter("The Type of word is sport/game \n")
     start_the_game(word, 0, level)
 
 
@@ -255,7 +253,7 @@ def typewriter(msg):
     for char in msg:
         sys.stdout.write(char)
         sys.stdout.flush()
-        if char !=" \n ":
+        if char != "\n":
             time.sleep(0.05)
         else:
             time.sleep(1)
@@ -264,6 +262,8 @@ def typewriter(msg):
 def start() -> None:
     typewriter("Welcome to the Hangman Game! Please Enter your name -> ")
     give_name = input()
+    while len(give_name) < 4:
+        give_name = input("Please enter atleast four letters -> ")
     name.append(give_name)
     level = "EASY"
     load_the_game(level)

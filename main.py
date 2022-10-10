@@ -145,7 +145,8 @@ def start_the_game(word: str, count: int, level) -> None:
             load_the_game(level)
         return
     temp_word = "".join(list_underscore)
-    char = input(f"The word is {temp_word} Take a guess ")
+    typewriter(f"The word is {temp_word} Take a guess ")
+    char = input()
     if char == "":
         typewriter("Invalid input, Please Enter Atleast one letter \n")
         start_the_game(word, count, level)

@@ -147,7 +147,7 @@ def start_the_game(word: str, count: int, level) -> None:
     typewriter("Enter your Guess -> ")
     char = input()
     if char == "":
-        print("Invalid input")
+        typewriter("Invalid input, Please Enter Atleast one letter \n")
         start_the_game(word, count, level)
         return
     char = char[0]

@@ -133,6 +133,37 @@ def hangman(count: int) -> None:
                   "|    |\n")
 
 
+def word_complete(word,level) -> None:
+    typewriter(f"Congrats! You have guessed \"{word}\" correctly \n")
+    if level == "HARD":
+        typewriter(f"Congrats {name[0]}! You have completed the game")
+        play_again = input("Do you want to play again Yes --> Y No --> N ")
+        if play_again == "" or not play_again[0].isalpha():
+            return
+        play_again = play_again[0].upper()
+        if play_again == "Y":
+            list_guess.clear()
+            list_char.clear()
+            list_underscore.clear()
+            start()
+        return
+    typewriter("You have reached the next level \n")
+    if level == "EASY":
+        level = "MEDIUM"
+        list_underscore.clear()
+        list_char.clear()
+        list_guess.clear()
+        load_the_game(level)
+        return
+    else:
+        level = "HARD"
+        list_underscore.clear()
+        list_char.clear()
+        list_guess.clear()
+        load_the_game(level)
+        return
+
+
 def start_the_game(word: str, count: int, level) -> None:
     if count == 5:
         typewriter(f"The word is {word}. Better luck next Time \n")
@@ -179,34 +210,7 @@ def start_the_game(word: str, count: int, level) -> None:
             list_underscore[i] = char
 
     if "_" not in list_underscore:
-        typewriter(f"Congrats! You have guessed \"{word}\" correctly \n")
-        if level == "HARD":
-            typewriter(f"Congrats {name[0]}! You have completed the game")
-            play_again = input("Do you want to play again Yes --> Y No --> N ")
-            if play_again == "" or not play_again[0].isalpha():
-                return
-            play_again = play_again[0].upper()
-            if play_again == "Y":
-                list_guess.clear()
-                list_char.clear()
-                list_underscore.clear()
-                start()
-            return
-        typewriter("You have reached the next level \n")
-        if level == "EASY":
-            level = "MEDIUM"
-            list_underscore.clear()
-            list_char.clear()
-            list_guess.clear()
-            load_the_game(level)
-            return
-        else:
-            level = "HARD"
-            list_underscore.clear()
-            list_char.clear()
-            list_guess.clear()
-            load_the_game(level)
-            return
+        word_complete(word,level)
     else:
         start_the_game(word, count, level)
 

@@ -254,9 +254,9 @@ def typewriter(msg):
         sys.stdout.write(char)
         sys.stdout.flush()
         if char != "\n":
-            time.sleep(0.05)
+            time.sleep(0.03)
         else:
-            time.sleep(1)
+            time.sleep(0.8)
 
 
 def start() -> None:

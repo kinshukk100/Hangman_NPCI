@@ -144,8 +144,8 @@ def start_the_game(word: str, count: int, level) -> None:
             list_underscore.clear()
             load_the_game(level)
         return
-    typewriter("Enter your Guess -> ")
-    char = input()
+    temp_word = "".join(list_underscore)
+    char = input(f"The word is {temp_word} Take a guess ")
     if char == "":
         typewriter("Invalid input, Please Enter Atleast one letter \n")
         start_the_game(word, count, level)
@@ -237,7 +237,6 @@ def load_the_game(level: str) -> None:
     for char in word:
         list_underscore.append("_")
         list_char.append(char)
-    print("The word is "+"".join(list_underscore))
     if index == 0:
         typewriter("The Type of word is Animal \n")
     elif index == 1:

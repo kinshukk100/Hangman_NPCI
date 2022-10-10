@@ -137,6 +137,8 @@ def start_the_game(word: str, count: int, level) -> None:
     if count == 5:
         typewriter(f"The word is {word}. Better luck next Time \n")
         play_again = input("Do you want to play again Yes --> Y No --> N ")
+        if play_again == "" or not play_again[0].isalpha():
+                return
         play_again = play_again[0].upper()
         if play_again == "Y":
             list_guess.clear()
@@ -181,6 +183,8 @@ def start_the_game(word: str, count: int, level) -> None:
         if level == "HARD":
             typewriter(f"Congrats {name[0]}! You have completed the game")
             play_again = input("Do you want to play again Yes --> Y No --> N ")
+            if play_again == "" or not play_again[0].isalpha():
+                return
             play_again = play_again[0].upper()
             if play_again == "Y":
                 list_guess.clear()
@@ -266,10 +270,3 @@ def start() -> None:
 
 
 start()
-
-
-
-
-
-
-

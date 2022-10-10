@@ -146,6 +146,10 @@ def start_the_game(word: str, count: int, level) -> None:
         return
     typewriter("Enter your Guess -> ")
     char = input()
+    if char == "":
+        print("Invalid input")
+        start_the_game(word, count, level)
+        return
     char = char[0]
     if not char.isalpha():
         typewriter("Invalid input, Try a letter \n")

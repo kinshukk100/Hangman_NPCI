@@ -135,7 +135,7 @@ def hangman(count: int) -> None:
 
 def start_the_game(word: str, count: int, level) -> None:
     if count == 5:
-        print(f"The word is {word}. Better luck next Time")
+        typewriter(f"The word is {word}. Better luck next Time \n")
         play_again = input("Do you want to play again Yes --> Y No --> N ")
         play_again = play_again[0].upper()
         if play_again == "Y":
@@ -144,15 +144,16 @@ def start_the_game(word: str, count: int, level) -> None:
             list_underscore.clear()
             load_the_game(level)
         return
-    char = input("Take a guess ")
+    typewriter("Enter your Guess -> ")
+    char = input()
     char = char[0]
     if not char.isalpha():
-        print("Invalid input")
+        typewriter("Invalid input, Try a letter \n")
         start_the_game(word, count, level)
         return
     char = char.upper()
     if char in list_guess:
-        print("You have already made this guess. Please make a different guess ")
+        typewriter("You have already made this guess. Please make a different guess \n")
         start_the_game(word, count, level)
         return
     list_guess.append(char)
@@ -163,7 +164,7 @@ def start_the_game(word: str, count: int, level) -> None:
         if count == 4:
             g_word = "guess"
         if count != 5:
-            print(f"Oops! Wrong guess. You have {5 - count} {g_word} remaining")
+            typewriter(f"Oops! Wrong guess. You have {5 - count} {g_word} remaining \n")
         start_the_game(word,count,level)
         return
     for i in range(len(list_char)):
@@ -171,9 +172,9 @@ def start_the_game(word: str, count: int, level) -> None:
             list_underscore[i] = char
 
     if "_" not in list_underscore:
-        print(f"Congrats! You have guessed \"{word}\" correctly")
+        typewriter(f"Congrats! You have guessed \"{word}\" correctly \n")
         if level == "HARD":
-            print(f"Congrats {name[0]}! You have completed the game")
+            typewriter(f"Congrats {name[0]}! You have completed the game")
             play_again = input("Do you want to play again Yes --> Y No --> N ")
             play_again = play_again[0].upper()
             if play_again == "Y":
@@ -182,7 +183,7 @@ def start_the_game(word: str, count: int, level) -> None:
                 list_underscore.clear()
                 start()
             return
-        print("You have reached the next level")
+        typewriter("You have reached the next level \n")
         if level == "EASY":
             level = "MEDIUM"
             list_underscore.clear()
@@ -234,11 +235,11 @@ def load_the_game(level: str) -> None:
         list_char.append(char)
     print("The word is "+"".join(list_underscore))
     if index == 0:
-        print("The word is of type animal")
+        typewriter("The Type of word is Animal \n")
     elif index == 1:
-        print("The word is of type country")
+        typewriter("The Type of word is Country \n")
     else:
-        print("The word is of type sport")
+        typewriter("The Type of word is Sport \n")
     start_the_game(word, 0, level)
 
 
@@ -261,7 +262,6 @@ def start() -> None:
 
 
 start()
-
 
 
 

@@ -174,6 +174,13 @@ def start_the_game(word: str, count: int, level) -> None:
         print(f"Congrats! You have guessed \"{word}\" correctly")
         if level == "HARD":
             print(f"Congrats {name[0]}! You have completed the game")
+            play_again = input("Do you want to play again Yes --> Y No --> N ")
+            play_again = play_again[0].upper()
+            if play_again == "Y":
+                list_guess.clear()
+                list_char.clear()
+                list_underscore.clear()
+                start()
             return
         print("You have reached the next level")
         if level == "EASY":
